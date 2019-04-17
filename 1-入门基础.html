@@ -1,0 +1,126 @@
+。<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本图形</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            /* background: green; */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script type="text/javascript">
+        function draw() {
+            var canvas = document.getElementById("canvas")
+            if (!canvas.getContext) return;
+            var ctx = canvas.getContext("2d")
+            // 1 绘制矩形
+            // ctx.fillStyle = "rgb(200,0,0)";
+            // ctx.fillRect(10, 10, 55, 50);
+            // ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            // ctx.fillRect(30, 30, 55, 50);
+            // ctx.fillStyle = "rgba(0, 0, 0, 1)";
+            // ctx.clearRect(20, 20, 10, 10) 
+            // ctx.fillStyle = "rgba(0, 0, 0, 1)";
+            // ctx.strokeRect(75, 70, 10, 10) 
+
+            // 2 绘制线段
+            // ctx.beginPath(); //新建一条path
+            // ctx.moveTo(50, 50); //把画笔移动到指定的坐标
+            // ctx.lineTo(200, 50);  //绘制一条从当前位置到指定坐标(200, 50)的直线.
+            // //闭合路径。会拉一条从当前点到path起始点的直线。如果当前点与起始点重合，则什么都不做
+            // ctx.closePath();
+            // ctx.stroke(); //绘制路径。
+
+            // 3 绘制三角形
+            // ctx.fillStyle = "rgb(0,255,255)";      // 填充颜色
+            // ctx.strokeStyle = "rgb(218,112,214)";  // 线条颜色
+            // ctx.beginPath();
+            // ctx.moveTo(100, 100);
+            // ctx.lineTo(150, 200);
+            // ctx.lineTo(50, 200);
+            // ctx.closePath();
+            // ctx.stroke(); // 空心
+            // ctx.fill(); // 实心
+
+            // 4 绘制圆弧
+            // ctx.beginPath();
+            // ctx.moveTo(50, 50);
+            // //参数1、2：控制点1坐标   参数3、4：控制点2坐标  参数4：圆弧半径
+            // ctx.arcTo(200, 50, 200, 200, 100);
+            // ctx.lineTo(200, 200)
+            // ctx.stroke();
+            // 点
+            // ctx.beginPath();
+            // ctx.rect(50, 50, 10, 10);
+            // ctx.rect(200, 50, 10, 10)
+            // ctx.rect(200, 200, 10, 10)
+            // ctx.fill()
+
+            // 5 贝塞尔曲线:绘制二次贝塞尔曲线
+            // ctx.beginPath();
+            // ctx.moveTo(10, 200); //起始点
+            // var cp1x = 40, cp1y = 100;  //控制点
+            // var x = 200, y = 200; // 结束点
+            // ctx.quadraticCurveTo(cp1x, cp1y, x, y); 
+            // ctx.stroke();
+            // 点
+            // ctx.beginPath();
+            // ctx.rect(10, 200, 10, 10);
+            // ctx.rect(cp1x, cp1y, 10, 10);
+            // ctx.rect(x, y, 10, 10);
+            // ctx.fill();
+
+            // 6 贝塞尔曲线:绘制二次贝塞尔曲线
+            // ctx.beginPath();
+            // ctx.moveTo(40, 200); //起始点
+            // var cp1x = 20, cp1y = 100;  //控制点1
+            // var cp2x = 100, cp2y = 120;  //控制点2
+            // var x = 200, y = 200; // 结束点
+            // //绘制三次贝塞尔曲线
+            // ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
+            // ctx.stroke();
+
+            // ctx.beginPath();
+            // ctx.rect(40, 200, 10, 10);
+            // ctx.rect(cp1x, cp1y, 10, 10);
+            // ctx.rect(cp2x, cp2y, 10, 10);
+            // ctx.rect(x, y, 10, 10);
+            // ctx.fill();
+
+            // 7 fillStyle
+            // for (var i = 0; i < 6; i++) {
+            //     for (var j = 0; j < 6; j++) {
+            //         ctx.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' +
+            //             Math.floor(255 - 42.5 * j) + ',0)';
+            //         ctx.fillRect(j * 50, i * 50, 50, 50);
+            //     }
+            // }
+
+            // 8 strokeStyle
+            // for (var i = 0; i < 6; i++) {
+            //     for (var j = 0; j < 6; j++) {
+            //         ctx.strokeStyle = `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+            //         ctx.strokeRect(j * 50, i * 50, 40, 40);
+            //     }
+            // }
+        }
+
+
+        draw()
+
+        function randomInt(from, to) {
+            return parseInt(Math.random() * (to - from + 1) + from);
+        }
+
+    </script>
+</body>
+
+</html>
