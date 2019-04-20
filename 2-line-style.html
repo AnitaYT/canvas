@@ -8,7 +8,7 @@
         }
     </style>
 </head>
-<canvas id="canvas" width="300" height="300"></canvas>
+<canvas id="canvas" width="500" height="500"></canvas>
 </body>
 <script type="text/javascript">
     function draw() {
@@ -19,6 +19,57 @@
         var ctx = canvas.getContext("2d");
         //开始代码
 
+        // 1
+        // ctx.beginPath();
+        // ctx.moveTo(10, 10);
+        // ctx.lineTo(100, 10);
+        // ctx.lineWidth = 10;    // 线宽
+        // ctx.lineCap = "round"; // 线末端样式：butt/round/square
+        // ctx.stroke();
+
+        // 2 线两端样式
+        // var lineCaps = ["butt", "round", "square"];
+        // for (var i = 0; i < 3; i++) {
+        //     ctx.beginPath();
+        //     ctx.moveTo(20 + 30 * i, 30);
+        //     ctx.lineTo(20 + 30 * i, 100);
+        //     ctx.lineWidth = 20;
+        //     ctx.lineCap = lineCaps[i];
+        //     ctx.stroke();
+        // }
+
+        // ctx.beginPath();
+        // ctx.moveTo(0, 30);
+        // ctx.lineTo(300, 30);
+
+        // ctx.moveTo(0, 100);
+        // ctx.lineTo(300, 100)
+
+        // ctx.strokeStyle = "red";
+        // ctx.lineWidth = 1;
+        // ctx.stroke();
+
+        // 3 同一个path内， 线条与线条结合处样式
+        // var lineJoin = ['round', 'bevel', 'miter'];
+        // ctx.lineWidth = 20;
+
+        // for (var i = 0; i < lineJoin.length; i++) {
+        //     ctx.lineJoin = lineJoin[i];
+        //     ctx.beginPath();
+        //     ctx.moveTo(50, 50 + i * 50);
+        //     ctx.lineTo(100, 100 + i * 50);
+        //     ctx.lineTo(150, 50 + i * 50);
+        //     ctx.lineTo(200, 100 + i * 50);
+        //     ctx.lineTo(250, 50 + i * 50);
+        //     ctx.stroke();
+        // }
+
+        // 4 虚线
+        ctx.setLineDash([50, 50]);  // [实线长度, 间隙长度]
+        ctx.lineDashOffset = -10;
+        ctx.strokeRect(50, 50, 210, 210);
+
+        console.log("getLineDash()",ctx.getLineDash())  // [50, 50]
     }
     draw();
 </script>

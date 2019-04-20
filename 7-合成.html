@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>合成</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<canvas id="tutorial" width="500" height="500"></canvas>
+</body>
+<script type="text/javascript">
+    function draw() {
+        var canvas = document.getElementById('tutorial');
+        // 检测支持性
+        if (!canvas.getContext) return;
+        //获得 2d 上下文对象
+        var ctx = canvas.getContext("2d");
+        //开始代码
+
+        // 1 合成
+
+        // ctx.fillStyle = "blue";
+        // ctx.fillRect(0, 0, 200, 200);
+
+        // // 1.source-over 这是默认设置，新图像会覆盖在原有图像
+        // // 2.source-in 仅仅会出现新图像与原来图像重叠的部分，其他区域都变成透明的。(包括其他的老图像区域也会透明)
+        // // 3.source-out 仅仅显示新图像与老图像没有重叠的部分，其余部分全部透明。(老图像也不显示)
+        // // 4.source-atop 新图像仅仅显示与老图像重叠区域。老图像仍然可以显示。
+        // // 5.destination-over 新图像会在老图像的下面。与1相反
+        // // 6.destination-in 仅仅新老图像重叠部分的老图像被显示，其他区域全部透明
+        // // 7.destination-out 仅仅老图像与新图像没有重叠的部分。 注意显示的是老图像的部分区域。
+        // // 8.destination-atop 老图像仅仅仅仅显示重叠部分，新图像会显示在老图像的下面。
+        // // 效果叠加
+        // // 9.lighter 新老图像都显示，但是重叠区域的颜色做加处理
+        // // 10.darken 保留重叠部分最黑的像素。(每个颜色位进行比较，得到最小的)
+        // // 11.lighten 保证重叠部分最量的像素。(每个颜色位进行比较，得到最大的)
+        // // 12.xor 重叠部分会变成透明
+        // // 13.copy 只有新图像会被保留，其余的全部被清除边透明
+
+
+        // ctx.globalCompositeOperation = "source-over"; //全局合成操作
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(100, 100, 200, 200);
+
+        // 2 裁剪
+
+
+        ctx.beginPath();
+        ctx.arc(20, 20, 100, 0, Math.PI * 2);
+        ctx.clip();
+
+        ctx.fillStyle = "pink";
+        ctx.fillRect(20, 20, 100, 100);
+    }
+    draw();
+</script>
+
+</html>

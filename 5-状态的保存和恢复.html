@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>状态的保存和恢复</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<canvas id="tutorial" width="500" height="500"></canvas>
+</body>
+<script type="text/javascript">
+    function draw() {
+        var canvas = document.getElementById('tutorial');
+        // 检测支持性
+        if (!canvas.getContext) return;
+        //获得 2d 上下文对象
+        var ctx = canvas.getContext("2d");
+        //开始代码
+
+        ctx.fillRect(0, 0, 150, 150);   // 使用默认设置绘制一个矩形
+        ctx.save();                  // 保存默认状态
+
+        ctx.fillStyle = 'red'       // 在原有配置基础上对颜色做改变
+        ctx.fillRect(15, 15, 120, 120); // 使用新的设置绘制一个矩形
+        ctx.save();                  // 保存当前状态
+
+        ctx.fillStyle = '#FFF'       // 再次改变颜色配置
+        ctx.fillRect(30, 30, 90, 90);   // 使用新的配置绘制一个矩形
+
+        ctx.restore();               // 重新加载之前的颜色状态 red
+        ctx.fillRect(45, 45, 60, 60);   // 使用上一次的配置绘制一个矩形
+
+        ctx.restore();               // 加载默认颜色配置
+        ctx.fillRect(60, 60, 30, 30);   // 使用加载的配置绘制一个矩形
+    }
+    draw();
+</script>
+
+</html>
