@@ -23,6 +23,17 @@
     //获得 2d 上下文对象
     let ctx = canvas.getContext("2d");
     //开始代码
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#f00';
+    let grd = ctx.createLinearGradient(0, 0, 100, 0);//从左到右
+    grd.addColorStop(0, "#f00"); //起始颜色
+    grd.addColorStop(1, "#00f"); //终点颜色
+    ctx.fillStyle = grd;
+    ctx.strokeStyle = grd;
+
+    ctx.arc(100, 100, 50, 0, 3/2* Math.PI, false);
+    ctx.stroke();
 
   }
 

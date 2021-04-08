@@ -11,45 +11,46 @@
 <canvas id="tutorial" width="500" height="500"></canvas>
 </body>
 <script type="text/javascript">
-    function draw() {
-        var canvas = document.getElementById('tutorial');
-        // 检测支持性
-        if (!canvas.getContext) return;
-        //获得 2d 上下文对象
-        var ctx = canvas.getContext("2d");
-        //开始代码
+  function draw() {
+    let canvas = document.getElementById('tutorial');
+    // 检测支持性
+    if (!canvas.getContext) return;
+    //获得 2d 上下文对象
+    let ctx = canvas.getContext("2d");
+    //开始代码
 
-        // 1 translate
-        // ctx.save(); //保存坐原点平移之前的状态
-        // ctx.translate(100, 100);
-        // ctx.strokeRect(0, 0, 100, 100)
-        // ctx.restore(); //  恢复到最初状态  如果恢复状态的话 这时候的原点在（100， 100）
-        // ctx.translate(220, 220);
-        // ctx.fillRect(0, 0, 100, 100)
+    // 1 translate
+    // ctx.save(); //保存坐原点平移之前的状态
+    // ctx.translate(100, 100);
+    // ctx.strokeRect(0, 0, 100, 100)
+    // ctx.restore(); //  恢复到最初状态  如果恢复状态的话 这时候的原点在（100， 100）
+    // ctx.translate(220, 220);
+    // ctx.fillRect(0, 0, 100, 100)
 
-        // 2 rotete
-        // ctx.fillStyle = "red";
-        // ctx.save();
+    // 2 rotete
+    // ctx.fillStyle = "red";
+    // ctx.save();
 
-        // ctx.translate(100, 100);
-        // ctx.rotate(Math.PI / 180 * 45);
-        // ctx.fillStyle = "blue";
-        // ctx.fillRect(0, 0, 100, 100);
-        // ctx.restore();
+    // ctx.translate(100, 100);
+    // ctx.rotate(Math.PI / 180 * 45);
+    // ctx.fillStyle = "blue";
+    // ctx.fillRect(0, 0, 100, 100);
+    // ctx.restore();
 
-        // ctx.save();
-        // ctx.translate(0, 0);
-        // ctx.fillRect(0, 0, 50, 50)
-        // ctx.restore();
+    // ctx.save();
+    // ctx.translate(0, 0);
+    // ctx.fillRect(0, 0, 50, 50)
+    // ctx.restore();
 
-        // 3 scale
+    // 3 scale
 
-        // 4 transform(变形矩阵)
-        ctx.transform(1, 1, 0, 1, 0, 0);
-        ctx.fillRect(0, 0, 100, 100);
+    // 4 transform(变形矩阵)
+    ctx.transform(1, 1, 0, 1, 0, 0);
+    ctx.fillRect(0, 0, 100, 100);
 
-    }
-    draw();
+  }
+
+  draw();
 </script>
 
 </html>

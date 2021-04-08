@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声波波率</title>
+</head>
+<body onload="draw();">
+<canvas id="tutorial" width="500" height="500">浏览器不支持</canvas>
+<script src="../util/util.js"></script>
+<script type="text/javascript">
+  function draw() {
+    let myCanvas = document.getElementById('tutorial');
+    if (myCanvas.getContext) {
+      let ctx = myCanvas.getContext('2d');
+      drawScreen(myCanvas, ctx);
+    }
+  }
+
+  function drawScreen(myCanvas, ctx) {
+    let arc = {
+      x: myCanvas.width / 2,
+      y: myCanvas.height / 2,
+      r: 50
+    };
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#e3f';
+
+    // 声波波率
+    // for (let i = 0; i < 10; i++) {
+    //   ctx.beginPath();
+    //   ctx.arc(arc.x, arc.y, arc.r * i, getRad(-45), getRad(45));
+    //   // ctx.closePath();  // 路径闭合
+    //   ctx.stroke();
+    //
+    //   ctx.beginPath();
+    //   ctx.arc(arc.x, arc.y, arc.r * i, getRad(-135), getRad(135), true);
+    //   ctx.stroke();
+    //   // ctx.fill();
+    // }
+
+    // 扇形
+    // ctx.beginPath();
+    // ctx.moveTo(arc.x, arc.y);
+    // ctx.arc(arc.x, arc.y, arc.r, getRad(-45), getRad(45), false);
+    // ctx.closePath();  // 路径闭合
+    // ctx.stroke();
+    //
+    // ctx.beginPath();
+    // ctx.moveTo(arc.x, arc.y);
+    // ctx.arc(arc.x, arc.y, arc.r, getRad(-135), getRad(135), true);
+    // ctx.fill();
+  }
+
+  // 使用arc()绘制图形时，如果没有设置moveTo()那么会从圆弧的开始的点（startRad处）作为起始点。如果设置了moveTo()，那么该点会连线到圆弧起始点。
+  // 如果使用stroke()方法，那么会从开始连线到圆弧的起始位置。 如果是 fill 方法, 会自动闭合路径填充
+
+  // 使用arc()除了可以绘制弧线和圆之外，还可以绘制扇形。绘制扇形关键点是通过moveTo()把起始点位置设置为圆心处，然后通过closePath()闭合路径。
+
+  // arcTo()绘制不出圆。
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {}
+
+        canvas {
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body onload="draw();">
+<canvas id="demo" width="500" height="500">
+    浏览器不支持此功能
+</canvas>
+<script lang="text/javascript">
+  function draw() {
+    let canvas = document.getElementById('demo');
+    if (canvas.getContext) {
+      let ctx = canvas.getContext('2d');
+
+      // 天线
+      ctx.strokeStyle = '#ffd800';
+      ctx.beginPath();
+      ctx.moveTo(200, 80);
+      ctx.lineTo(230, 150);
+      ctx.stroke();
+      ctx.moveTo(270, 150);
+      ctx.lineTo(300, 80);
+      ctx.stroke();
+
+      // 头
+      ctx.fillStyle = '#ffdbba';
+      ctx.fillRect(200, 150, 100, 70);
+
+      // 耳朵
+      ctx.fillStyle = '#ffff00';
+      ctx.fillRect(190, 160, 10, 25);
+      ctx.fillRect(300, 160, 10, 25);
+
+      // 眼睛
+      ctx.fillStyle = '#000';
+      ctx.moveTo(220, 170);
+      ctx.arc(220, 170, 5, 0, Math.PI * 2, true);
+      ctx.moveTo(280, 170);
+      ctx.arc(280, 170, 5, 0, Math.PI * 2, true);
+      ctx.fill();
+
+      // 嘴巴
+      ctx.fillStyle = '#ff0000';
+      ctx.fillRect(230, 185, 40, 10);
+
+      // 身体
+      ctx.fillStyle = '#8fe6ef';
+      ctx.fillRect(220, 220, 60, 150);
+
+      // 手臂
+      ctx.fillStyle = '#ffc1cc';
+      ctx.fillRect(70, 250, 150, 10);
+      ctx.fillRect(280, 250, 150, 10);
+
+      ctx.fillRect(232, 370, 12, 40);
+      ctx.fillRect(256, 370, 12, 40);
+    }
+  }
+</script>
+</body>
+
+</html>

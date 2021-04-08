@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>太极图</title>
+    <style>
+        canvas {
+            background: dodgerblue;
+        }
+    </style>
+</head>
+<body onload="draw();">
+<canvas id="tutorial" width="500" height="500">浏览器不支持</canvas>
+<script src="../util/util.js"></script>
+<script type="text/javascript">
+  function draw() {
+    let myCanvas = document.getElementById('tutorial');
+    if (myCanvas.getContext) {
+      let ctx = myCanvas.getContext('2d');
+      drawScreen(myCanvas, ctx);
+    }
+  }
+
+  function drawScreen(myCanvas, ctx) {
+    let arc = {
+      x: myCanvas.width / 2,
+      y: myCanvas.height / 2,
+      r: 100
+    };
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#e3f';
+
+    // 绘制白色大圆
+    ctx.beginPath();
+    ctx.fillStyle = '#fff';
+    ctx.arc(arc.x, arc.y, arc.r, getRad(-90), getRad(90), false);
+    ctx.fill();
+
+    // 绘制黑色大圆
+    ctx.beginPath();
+    ctx.fillStyle = '#000';
+    ctx.arc(arc.x, arc.y, arc.r, getRad(-90), getRad(90), true);
+    ctx.fill();
+
+    // 绘制白色小圆
+    ctx.beginPath();
+    ctx.fillStyle = '#fff';
+    ctx.arc(arc.x, arc.y - arc.r / 2, arc.r / 2, getRad(-90), getRad(90), true);
+    ctx.fill();
+
+    // 绘制黑色小圆
+    ctx.beginPath();
+    ctx.fillStyle = '#000';
+    ctx.arc(arc.x, arc.y + arc.r / 2, arc.r / 2, getRad(-90), getRad(90), false);
+    ctx.fill();
+
+    // 绘制小黑点
+    ctx.beginPath();
+    ctx.fillStyle = '#000';
+    ctx.arc(arc.x, arc.y - arc.r / 2, arc.r / 10, getRad(0), getRad(360), false);
+    ctx.fill();
+
+    // 绘制小白点
+    ctx.beginPath();
+    ctx.fillStyle = '#fff';
+    ctx.arc(arc.x, arc.y + arc.r / 2, arc.r / 10, getRad(0), getRad(360), false);
+    ctx.fill();
+  }
+</script>
+</body>
+</html>

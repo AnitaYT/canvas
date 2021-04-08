@@ -9,7 +9,6 @@
     <style>
         canvas {
             border: 1px solid red;
-            /* background: green; */
         }
     </style>
 </head>
@@ -18,7 +17,7 @@
     <canvas id="canvas" width="500" height="500"></canvas>
     <script type="text/javascript">
         function draw() {
-            var canvas = document.getElementById("canvas")
+            let canvas = document.getElementById("canvas");
             if (!canvas.getContext) return;
             var ctx = canvas.getContext("2d")
             // 1 绘制矩形
@@ -114,7 +113,7 @@
         }
 
 
-        draw()
+        draw();
 
         function randomInt(from, to) {
             return parseInt(Math.random() * (to - from + 1) + from);
