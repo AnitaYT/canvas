@@ -31,6 +31,7 @@
     //   ctx.beginPath();
     //   ctx.arc(arc.x, arc.y, arc.r * i, getRad(-45), getRad(45));
     //   // ctx.closePath();  // 路径闭合
+    //   // stroke()之前调用closePath()，那么弧线的起始点和终止点将会以一条直接连接在一起
     //   ctx.stroke();
     //
     //   ctx.beginPath();
@@ -55,7 +56,7 @@
   // 使用arc()绘制图形时，如果没有设置moveTo()那么会从圆弧的开始的点（startRad处）作为起始点。如果设置了moveTo()，那么该点会连线到圆弧起始点。
   // 如果使用stroke()方法，那么会从开始连线到圆弧的起始位置。 如果是 fill 方法, 会自动闭合路径填充
 
-  // 使用arc()除了可以绘制弧线和圆之外，还可以绘制扇形。绘制扇形关键点是通过moveTo()把起始点位置设置为圆心处，然后通过closePath()闭合路径。
+  // 使用arc()除了可以绘制弧线和圆之外，还可以绘制扇形/圆角矩形。绘制扇形关键点是通过moveTo()把起始点位置设置为圆心处，然后通过closePath()闭合路径。
 
   // arcTo()绘制不出圆。
 </script>

@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>template</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<canvas id="tutorial" width="500" height="500"></canvas>
+</body>
+<script type="text/javascript">
+  function draw() {
+    let canvas = document.getElementById('tutorial');
+    // 检测支持性
+    if (!canvas.getContext) return;
+    //获得 2d 上下文对象
+    let ctx = canvas.getContext("2d");
+    //开始代码
+
+    ctx.strokeStyle = 'rgb(150,0,0)';
+    ctx.fillStyle = 'rgb(0,150,0)';
+    ctx.lineWidth = 7;
+    drawRoundedRect(ctx, 30, 50, 200, 220, 20, true, true);
+
+    // ctx.strokeStyle = 'rgb(150,0,150)';
+    // ctx.fillStyle = 'rgba(0,0,150,0.6)';
+    // ctx.lineWidth = 7;
+    // drawRoundedRect(ctx, 300, 100, 250, 150, 8, true, false);
+  }
+
+  function drawRoundedRect(ctx, x, y, width, height, r, fill, stroke) {
+    ctx.save();
+    ctx.beginPath();
+
+    ctx.moveTo(x + r, y);
+    console.log("p1", x + 4, y)
+    ctx.arcTo(x + width, y, x + width, y + r, r);
+    console.log("p2", x + width, y, "p3", x + width, y + r)
+    ctx.arcTo(x + width, y + height, x + width - r, y + height, r);
+    console.log("p4", x + width, y + height, "p5", x + width - r, y + height)
+    ctx.arcTo(x, y + height, x, y + height - r, r);
+    console.log("p6", x, y + height, "p7", x, y + height - r)
+    ctx.arcTo(x, y, x + r, y, r);
+
+    // if (fill) {
+    //   ctx.fill();
+    // }
+
+    if (stroke) {
+      ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+
+  draw();
+</script>
+
+</html>
